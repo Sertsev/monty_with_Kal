@@ -79,13 +79,14 @@ int get_comparation(char *Token, stack_t **structure, unsigned int ln_num)
 	instruction_t opfun[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 
 	int value = 0, data = 0;
 	int count = 0, status = 0;
 
-	while (opfun[count].opcode && count <= 1)
+	while (opfun[count].opcode && count <= 2)
 	{
 		if (strcmp(opfun[count].opcode, "push") != 0)
 		{
@@ -107,7 +108,7 @@ int get_comparation(char *Token, stack_t **structure, unsigned int ln_num)
 		}
 		count++;
 	}
-	if (count == 2 && status == 0)
+	if (count == 3 && status == 0)
 	{return (-1); }
 	else
 	{return (0); }

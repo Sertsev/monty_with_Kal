@@ -46,5 +46,6 @@ void pall(stack_t **stack, unsigned int line_number, unsigned int value);
 int get_comparation(char *Token, stack_t **structure, unsigned int count);
 void free_all(stack_t **stack);
 void case_error_1(stack_t **structure, unsigned int ln_num, unsigned int data);
+void pint(stack_t **stack, unsigned int line_number, unsigned int value);
 
 #endif

@@ -58,3 +58,23 @@ void pall(stack_t **stack, unsigned int line_number, unsigned int value)
 		aux = aux->next;
 	}
 }
+
+/**
+ * pint - Function that print date in the screen
+ * @stack : pointer of input
+ * @line_number: Number of a line
+ * @value : int of input
+ * @stack : double pointer of input
+ */
+
+void pint(stack_t **stack, unsigned int line_number, unsigned int value)
+{
+	line_number = line_number;
+	if (stack == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", value);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*stack)->n);
+}
+
