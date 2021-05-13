@@ -1,11 +1,12 @@
 #include "monty.h"
 /**
-  * case_error_1 - functiont that execute one case error depend of the optino.
-  * @ID: Date of input
+  * case_error_1 - a func that execute one case error depend of the optino.
+  *
   * @structure: double pointer of input
   * @ln_num: number of line
   * @data: pointer of input
   **/
+
 void case_error_1(stack_t **structure, unsigned int ln_num, unsigned int data)
 {
 	switch (data)

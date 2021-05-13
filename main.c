@@ -81,7 +81,7 @@ int get_comparation(char *Token, stack_t **structure, unsigned int ln_num)
 		{"pall", pall},
 		{NULL, NULL}
 	};
-	
+
 	int value = 0, data = 0;
 	int count = 0, status = 0;
 
