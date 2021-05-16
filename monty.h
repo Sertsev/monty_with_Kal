@@ -7,10 +7,16 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <sys/uio.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <ctype.h>
+#define Buffsize 30
 
+/* Global variables */
+extern int value[2];
+
+/* Structures */
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -20,11 +26,12 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO Holberton project
  */
+
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+  int n;
+  struct stack_s *prev;
+  struct stack_s *next;
 } stack_t;
 
 /**
@@ -35,17 +42,39 @@ typedef struct stack_s
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFO Holberton project
  */
+
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number, unsigned int value);
+  char *opcode;
+  void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push(stack_t **stack, unsigned int line_number, unsigned int value);
-void pall(stack_t **stack, unsigned int line_number, unsigned int value);
-int get_comparation(char *Token, stack_t **structure, unsigned int count);
-void free_all(stack_t **stack);
-void case_error_1(stack_t **structure, unsigned int ln_num, unsigned int data);
-void pint(stack_t **stack, unsigned int line_number, unsigned int value);
+/* Fucntions */
+int value[2];
+int is_num(char *token);
+void _push(stack_t **stack, unsigned int line_number);
+void _pop(stack_t **stack, unsigned int line_number);
+void _pall(stack_t **stack, unsigned int line_number);
+void _swap(stack_t **stack, unsigned int line_number);
+void _pint(stack_t **stack, unsigned int line_number);
+void _nop(stack_t **stack, unsigned int line_number);
+void _pchar(stack_t **stack, unsigned int line_number);
+void _pstr(stack_t **stack, unsigned int line_number);
+
+/* Operation Functions */
+void _add(stack_t **stack, unsigned int line_number);
+void _sub(stack_t **stack, unsigned int line_number);
+void _mul(stack_t **stack, unsigned int line_number);
+void _div(stack_t **stack, unsigned int line_number);
+void _mod(stack_t **stack, unsigned int line_number);
+void _rotr(stack_t **stack, unsigned int line_number);
+//void _rotl(stack_t **stack, unsigned int line_number);
+
+stack_t *add_dnodeint_end(stack_t **head, int n);
+int delete_dnodeint_at_index(stack_t **head, unsigned int idx);
+void free_dlistint(stack_t *head);
+void simple_err(int del_coden, char *arv);
+void free_err(FILE *file, char *bff, stack_t *stk, int lne, int cde, char *tok);
+int strcmp_num(char *str);
 
 #endif
